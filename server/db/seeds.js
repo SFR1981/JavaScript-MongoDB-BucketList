@@ -1,4 +1,4 @@
-use buckets;
+use bucket;
 db.dropDatabase();
 
 db.wishes.insertMany([

@@ -12,10 +12,10 @@ const parser = require('body-parser');
 
  MongoClient.connect('mongodb://localhost:27017')
    .then((client) => {
-     const db = client.db('buckets');
+     const db = client.db('bucket');
      const wishList = db.collection('wishes');
      const bucketRouter = createRouter(wishList);
-    app.use('/api/buckets', bucketRouter);
+    app.use('/api/bucket', bucketRouter);
    })
    .catch(console.err);
 

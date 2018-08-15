@@ -2,7 +2,7 @@ const Request = require('../helpers/request.js');
 const PubSub = require('../helpers/pub_sub.js');
 
 const Wishes = function (url) {
-  this.url = 'http://localhost:3000/api/wishes';
+  this.url = 'http://localhost:3000/api/bucket';
   this.request = new Request(this.url);
 };
 
