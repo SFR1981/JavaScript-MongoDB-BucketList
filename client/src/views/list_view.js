@@ -16,12 +16,21 @@ ListView.prototype.bindEvents = function () {
 ListView.prototype.render = function (wishes) {
   this.container.innerHTML = '';
   wishes.forEach((wish)=> {
-    console.log(wish.status);
     const wishContainer = document.createElement('div');
     const wishStatus = document.createElement('INPUT');
     wishStatus.setAttribute("type", "checkbox");
 
     this.checkBoxStatus(wishStatus, wish);
+    wishStatus.addEventListener("click", ()=>{
+      if(wish.status==="true")
+      {wish.status="false";}
+      else
+      {wish.status="true";}
+      console.log("ListView:", wish._id);
+      console.log(wish.status);
+      PubSub.publish("ListView:check-wish", wish);
+
+    });
 
     wishContainer.appendChild(wishStatus);
 

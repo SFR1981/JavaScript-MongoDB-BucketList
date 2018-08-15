@@ -18,11 +18,13 @@ Wishes.prototype.bindEvents = function () {
 
 
   PubSub.subscribe('ListView:delete-wish', (evt) => {
-    console.log(evt.detail);
+
     this.deleteWish(evt.detail._id);
   });
 
-
+  PubSub.subscribe('ListView:check-wish', (evt) =>{
+    this.putWish(evt.detail);
+  });
 
 
 
@@ -52,5 +54,16 @@ Wishes.prototype.deleteWish = function (wishId) {
     })
     .catch(console.error);
 };
+
+
+Wishes.prototype.putWish = function (wish) {
+  this.request.put(wish)
+  .then((wishes) => {
+    console.log("Wishes after Put:", wishes);
+    PubSub.publish('Wishes:data-loaded', wishes);
+  })
+  .catch(console.error);
+};
+
 
 module.exports = Wishes;
