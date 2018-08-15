@@ -12,9 +12,21 @@ Wishes.prototype.bindEvents = function () {
   //   this.deleteSighting(evt.detail);
   // });
 
-  PubSub.subscribe('WishesView:wish-submitted', (evt) => {
+  PubSub.subscribe('FormView:wish-submitted', (evt) => {
     this.postWish(evt.detail);
-  })
+  });
+
+
+  PubSub.subscribe('ListView:delete-wish', (evt) => {
+    console.log(evt.detail);
+    this.deleteWish(evt.detail._id);
+  });
+
+
+
+
+
+
 };
 
 Wishes.prototype.getData = function () {
