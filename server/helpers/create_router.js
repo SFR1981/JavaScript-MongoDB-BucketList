@@ -65,7 +65,9 @@ const router = express.Router();
   router.put('/:id', (req, res) => {
     const id = req.params.id;
     const updatedData = req.body;
+    console.log(updatedData);
     delete updatedData._id;
+    console.log(updatedData);
     collection.updateOne(
         { _id: ObjectID(id) },
         { $set: updatedData }
