@@ -1,6 +1,6 @@
 body {
   font-family: 'EB Garamond', serif;
-  
+
   background-size: cover;
   width: 90%;
   margin: 0 auto;
@@ -60,4 +60,8 @@ input[type=submit] {
 button.delete-btn {
   border: none;
   padding: 0;
+}
+
+.done {
+    text-decoration: line-through;
 }

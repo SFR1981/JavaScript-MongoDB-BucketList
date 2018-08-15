@@ -43,6 +43,9 @@ ListView.prototype.render = function (wishes) {
 
     const wishDescription = document.createElement('p');
     wishDescription.textContent = wish.wishes;
+    if (wishStatus.checked === true){
+      wishDescription.classList.add("done");
+    };
     wishContainer.appendChild(wishDescription);
     this.container.appendChild(wishContainer);
 
@@ -54,7 +57,9 @@ ListView.prototype.checkBoxStatus = function (wishStatus, wish) {
   if(wish.status === "false")
     {wishStatus.checked = false;}
     else
-    {wishStatus.checked = true;}
+    {wishStatus.checked = true;
+
+    }
 
 };
 
